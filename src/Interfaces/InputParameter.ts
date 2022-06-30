@@ -1,6 +1,6 @@
 import { InputParameterSchemaList } from "./InputParameterSchemaList";
 
-export interface Quote {
+export interface InputParameter {
     Name:                      string;
     InputParameterId:          number;
     InputParameterType:        string;

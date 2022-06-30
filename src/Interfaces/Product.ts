@@ -1,12 +1,12 @@
 import { PolicyHolder } from "./PolicyHolder";
 import { ProductDetail } from "./ProductDetail";
-import { Quote } from "./Quote";
+import { InputParameter } from "./InputParameter";
 
 export interface Product {
     ProductDetail: ProductDetail;
     PolicyHolder:  PolicyHolder[];
-    Quote:         Quote[];
-    Confirm:       any[];
-    ToEmit:        any[];
+    Quote:         InputParameter[];
+    Confirm:       InputParameter[];
+    ToEmit:        InputParameter[];
     AskSekure:     any[];
 }
