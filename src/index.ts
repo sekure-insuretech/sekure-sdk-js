@@ -4,10 +4,12 @@ import { GetProducts } from "./InsuranceOS/GetProducts"
 import { GetProductStage } from "./InsuranceOS/GetProductStage";
 import { GetEstimateBySessionId } from "./InsuranceOS/GetEstimateBySessionId";
 import { GetProductLotByName } from "./InsuranceOS/GetProductLotByName";
+import { Quote } from "./InsuranceOS/Quote";
 */
 
-import { Quote } from "./InsuranceOS/Quote";
 import { ExecutableProduct } from "./Types/ExecutableProduct";
+import { Confirm } from "./InsuranceOS/Confirm";
+
 
 
 
@@ -41,7 +43,7 @@ import { ExecutableProduct } from "./Types/ExecutableProduct";
 .finally( () => console.log( "GetProductLotByName('ground_test_pets')" ) ) */
 
 
-const request : ExecutableProduct = {
+/* const request : ExecutableProduct = {
   ProductDetail : {
       ProductId : 138,
       ProductName : 'Asistencia Bolso Protegido',
@@ -69,6 +71,37 @@ console.log(request);
 console.log('Aquí empieza a cotizar');
 
 Quote(request)
+.then( resp => console.log( resp ) )
+.catch( error => console.log( error ) )
+.finally( () => console.log( "Quote(request)" ) ) */
+
+
+const sessionId = '7f98937e-d803-498e-ccba-08da5b1dd847';
+const request : ExecutableProduct = {
+  ProductDetail : {
+      ProductId : 138,
+      ProductName : 'Asistencia Bolso Protegido',
+      PolicyTypeName : 'Asistencias',
+      InsuranceCompanyName : 'Andi Asistencia',
+      ProductCover : ''
+  },
+  PolicyHolder : {
+      firstName : 'Jhonatan',
+      secondName : 'Alejandro',
+      lastName : 'Muñoz',
+      secondLastName : 'Serna',
+      birthdate : new Date,
+      address : 'xxxxx',
+      identificationType : '1',
+      identificationNumber : '123456',
+      maritalStatus : '1',
+      email : 'jhonatan@sekure.com.co',
+      phoneNumber : '3112225588'
+  },
+  Parameters : []
+};
+
+Confirm(request, sessionId)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
 .finally( () => console.log( "Quote(request)" ) )

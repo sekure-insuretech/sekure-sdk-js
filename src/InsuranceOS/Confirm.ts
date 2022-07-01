@@ -1,11 +1,12 @@
 import axios from "axios";
 import { ExecutableProduct } from "../Types/ExecutableProduct";
+import { ConfirmProduct } from "../Interfaces/ConfirmProduct";
 import { skrKey, url } from "./Configuration";
-import { QuotedProduct } from "../Interfaces/QuotedProduct";
+import { Exception } from "../Interfaces/Exception";
 
-export const Quote = async (request : ExecutableProduct) : Promise<QuotedProduct> => {
+export const Confirm = async (request : ExecutableProduct, SessionId: string ) : Promise<( ConfirmProduct | Exception )> => {
 
-    const { data } = await axios.post<QuotedProduct>(`${ url }/Products/Quote`,
+    const { data } = await axios.post<(ConfirmProduct | Exception)>(`${ url }/Products/Confirm/${ SessionId }`,
     JSON.stringify(request),
     {
         headers: {
@@ -16,6 +17,6 @@ export const Quote = async (request : ExecutableProduct) : Promise<QuotedProduct
           "skr-key": skrKey
         }
       });
-  
-    return data;
+      
+      return data;
   }
