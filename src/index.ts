@@ -4,11 +4,12 @@ import { GetProducts } from "./InsuranceOS/GetProducts"
 import { GetProductStage } from "./InsuranceOS/GetProductStage";
 import { GetEstimateBySessionId } from "./InsuranceOS/GetEstimateBySessionId";
 import { GetProductLotByName } from "./InsuranceOS/GetProductLotByName";
+import { Confirm } from "./InsuranceOS/Confirm";
 import { Quote } from "./InsuranceOS/Quote";
 */
 
 import { ExecutableProduct } from "./Types/ExecutableProduct";
-import { Confirm } from "./InsuranceOS/Confirm";
+import { Emit } from "./InsuranceOS/Emit";
 
 
 
@@ -76,7 +77,7 @@ Quote(request)
 .finally( () => console.log( "Quote(request)" ) ) */
 
 
-const sessionId = '993f1c03-a6e1-4271-7f98-08da5b789611';
+/* const sessionId = '993f1c03-a6e1-4271-7f98-08da5b789611';
 const request : ExecutableProduct = {
   ProductDetail : {
       ProductId : 31,
@@ -104,4 +105,68 @@ const request : ExecutableProduct = {
 Confirm(request, sessionId)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
+.finally( () => console.log( "Quote(request)" ) ) */
+
+const sessionId = 'c6a51a72-6782-4719-7877-08da5b812142';
+const request : ExecutableProduct = {
+  ProductDetail : {
+      ProductId :             100,
+      ProductName :           'Exequias Individual',
+      PolicyTypeName :        'Plan Exequial',
+      InsuranceCompanyName :  'Prever',
+      ProductCover :          ''
+  },
+  PolicyHolder : {
+      firstName :             'Jhonatan',
+      secondName :            'Alejandro',
+      lastName :              'Muñoz',
+      secondLastName :        'Serna',
+      birthdate :             new Date,
+      address :               'xxxxx',
+      identificationType :    '1',
+      identificationNumber :  '123456',
+      maritalStatus :         '1',
+      email :                 'jhonatan@sekure.com.co',
+      phoneNumber :           '3112225588'
+  },
+  Parameters : [
+    {
+      Name:                      'Lead Name',
+      InputParameterId:          330,
+      InputParameterType:        'Text',
+      inputParameterValue:       'Sekure',
+      InputParameterDescription: 'En este campo va el nombre del tomador de la póliza',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+    {
+      Name:                      'Email',
+      InputParameterId:          331,
+      InputParameterType:        'Text',
+      inputParameterValue:       'contacto@sekure.com.co',
+      InputParameterDescription: 'Email del tomador',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+    {
+      Name:                      'NameClient',
+      InputParameterId:          332,
+      InputParameterType:        'Text',
+      inputParameterValue:       'sekure',
+      InputParameterDescription: 'Nombre del cliente, usuario del API',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    }
+  ]
+};
+
+console.log(request);
+
+Emit(request, sessionId)
+.then( resp => console.log( resp ) )
+.catch( error => console.log( error ) )
 .finally( () => console.log( "Quote(request)" ) )
+

@@ -5,6 +5,7 @@ export type InputParameter = {
     InputParameterId:          number;
     InputParameterType:        string;
     InputParameterDescription: string;
+    inputParameterValue:       string;
     InputParameterRequired:    string;
     ShowApi:                   boolean;
     InputParameterSchemaList:  InputParameterSchemaList[];
