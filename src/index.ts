@@ -76,11 +76,11 @@ Quote(request)
 .finally( () => console.log( "Quote(request)" ) ) */
 
 
-const sessionId = '7f98937e-d803-498e-ccba-08da5b1dd847';
+const sessionId = '993f1c03-a6e1-4271-7f98-08da5b789611';
 const request : ExecutableProduct = {
   ProductDetail : {
-      ProductId : 138,
-      ProductName : 'Asistencia Bolso Protegido',
+      ProductId : 31,
+      ProductName : 'Asistencia Telemedicina',
       PolicyTypeName : 'Asistencias',
       InsuranceCompanyName : 'Andi Asistencia',
       ProductCover : ''

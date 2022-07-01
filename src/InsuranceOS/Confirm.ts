@@ -1,12 +1,12 @@
 import axios from "axios";
 import { ExecutableProduct } from "../Types/ExecutableProduct";
-import { ConfirmProduct } from "../Interfaces/ConfirmProduct";
 import { skrKey, url } from "./Configuration";
 import { Exception } from "../Interfaces/Exception";
+import { Policy } from "../Interfaces/Policy";
 
-export const Confirm = async (request : ExecutableProduct, SessionId: string ) : Promise<( ConfirmProduct | Exception )> => {
+export const Confirm = async (request : ExecutableProduct, SessionId: string ) : Promise<( Policy | Exception )> => {
 
-    const { data } = await axios.post<(ConfirmProduct | Exception)>(`${ url }/Products/Confirm/${ SessionId }`,
+    const { data } = await axios.post<( Policy | Exception )>(`${ url }/Products/Confirm/${ SessionId }`,
     JSON.stringify(request),
     {
         headers: {
