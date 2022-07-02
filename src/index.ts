@@ -1,6 +1,6 @@
 
-import { GetProductById } from "./InsuranceOS/GetProductById"
 /* 
+import { GetProductById } from "./InsuranceOS/GetProductById"
 import { Quote } from "./InsuranceOS/Quote";
 import { ExecutableProduct } from "./Types/ExecutableProduct";
 import { GetProducts } from "./InsuranceOS/GetProducts"
@@ -12,6 +12,8 @@ import { Emit } from "./InsuranceOS/Emit";
 import { QuoteLot } from "./InsuranceOS/QuoteLot";
 import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
 */
+
+import InsuranceOS from "./InsuranceOS";
 
 
 
@@ -28,10 +30,10 @@ import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
   .catch( error => console.log( error ) )
   .finally( () => console.log( `Fin GetProduct` ) ) */
 
-GetProductById(138)
+/* GetProductById(138)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
-.finally( () => console.log( `Fin GetProductById(138)` ) )
+.finally( () => console.log( `Fin GetProductById(138)` ) ) */
 
 /* GetProductStage('42bd068a-71df-4dcc-d4ec-08da2c5db10e')
 .then( resp => console.log( resp ) )
@@ -229,3 +231,14 @@ QuoteLot(request)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
 .finally( () => console.log( "QuoteLot(request)" ) ) */
+
+console.log('Inicio');
+let insuranceOS = new InsuranceOS('https://api.sekure.com.co/OSStage', 'ec151c0d3e6648f88b4a65fc3a0b1ab1');
+console.log('Entro al constructor');
+
+const getProductId = insuranceOS.GetProductById(138)
+  .then( resp => console.log(resp.Confirm[0].InputParameterSchemaList) )
+  .catch( error => console.log( error ) )
+  .finally( () => console.log( "GetProductById(138)" ) );
+
+  console.log(getProductId);
