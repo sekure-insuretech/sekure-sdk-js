@@ -6,5 +6,4 @@ export type ExecutableProduct = {
     ProductDetail:          ProductDetail;
     PolicyHolder:           PolicyHolder;
     Parameters:             InputParameter[];
-
 }

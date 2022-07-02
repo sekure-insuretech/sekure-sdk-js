@@ -6,10 +6,13 @@ import { GetEstimateBySessionId } from "./InsuranceOS/GetEstimateBySessionId";
 import { GetProductLotByName } from "./InsuranceOS/GetProductLotByName";
 import { Confirm } from "./InsuranceOS/Confirm";
 import { Quote } from "./InsuranceOS/Quote";
-*/
-
 import { ExecutableProduct } from "./Types/ExecutableProduct";
 import { Emit } from "./InsuranceOS/Emit";
+*/
+
+import { QuoteLot } from "./InsuranceOS/QuoteLot";
+import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
+
 
 
 
@@ -105,9 +108,9 @@ const request : ExecutableProduct = {
 Confirm(request, sessionId)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
-.finally( () => console.log( "Quote(request)" ) ) */
+.finally( () => console.log( "Confirm(request, sessionId)" ) ) */
 
-const sessionId = 'c6a51a72-6782-4719-7877-08da5b812142';
+/* const sessionId = 'c6a51a72-6782-4719-7877-08da5b812142';
 const request : ExecutableProduct = {
   ProductDetail : {
       ProductId :             100,
@@ -163,10 +166,64 @@ const request : ExecutableProduct = {
   ]
 };
 
-console.log(request);
-
 Emit(request, sessionId)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
-.finally( () => console.log( "Quote(request)" ) )
+.finally( () => console.log( "Emit(request, sessionId)" ) ) */
 
+const request : ExecutatbleProductLot = {
+  BatchDetail : {
+    Name : 'Test_ground_Exequias_Individual',
+    PolicyTypeName : 'Asistencias'
+  },
+  Parameters : [
+    {
+      Name:                      'Fecha de nacimiento',
+      InputParameterId:          328,
+      InputParameterType:        'Text',
+      inputParameterValue:       '1991-10-10',
+      InputParameterDescription: 'Fecha de nacimiento del tomador, la edad máximo es de 70 años y el formato de fecha correcto es AÑO-MES-DÍA',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+    {
+      Name:                      'Periodo de vigencia',
+      InputParameterId:          329,
+      InputParameterType:        'Text',
+      inputParameterValue:       '1',
+      InputParameterDescription: 'Se debe de enviar los valores. 1 = Si es semestral, 2 = Si es anual',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+    {
+      Name:                      'Ciudad',
+      InputParameterId:          351,
+      InputParameterType:        'Text',
+      inputParameterValue:       'Santa Fe de Antioquia',
+      InputParameterDescription: 'Ciudad del tomador',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+    {
+      Name:                      'Dirección',
+      InputParameterId:          352,
+      InputParameterType:        'Text',
+      inputParameterValue:       'xxxxxx',
+      InputParameterDescription: 'Dirección del Tomador',
+      InputParameterRequired:    'true',
+      ShowApi:                   true,
+      InputParameterSchemaList:  []
+    },
+  ]
+};
+
+console.log(request);
+console.log('Aquí empieza a cotizar el lote');
+
+QuoteLot(request)
+.then( resp => console.log( resp ) )
+.catch( error => console.log( error ) )
+.finally( () => console.log( "QuoteLot(request)" ) )
