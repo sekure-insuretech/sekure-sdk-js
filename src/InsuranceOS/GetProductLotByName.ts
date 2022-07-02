@@ -1,10 +1,10 @@
 import axios from "axios";
-import { BatchDiscovery } from "../Interfaces/BatchDiscovery";
+import i = Sekure.Interface;
 import { configRequest, url } from "./Configuration";
 
-export const GetProductLotByName = async ( name : string ) : Promise<BatchDiscovery> => {
+export const GetProductLotByName = async ( name : string ) : Promise<i.BatchDiscovery> => {
 
-    const resp = await axios.get<BatchDiscovery>(`${ url }/Products/Batch/${ name }`, 
+    const resp = await axios.get<i.BatchDiscovery>(`${ url }/Products/Batch/${ name }`, 
       configRequest);
   
     return resp.data;
