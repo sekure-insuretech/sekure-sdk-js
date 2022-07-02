@@ -1,3 +1,7 @@
-export interface Exception {
-    Error:  string;
+namespace Sekure {
+    export namespace Interface {
+        export interface Exception {
+            Error:  string;
+        }
+    }
 }

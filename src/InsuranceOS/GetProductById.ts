@@ -1,10 +1,10 @@
 import axios from "axios";
-import { Product } from "../Interfaces/Product";
 import { configRequest, url } from "./Configuration";
+import i = Sekure.Interface;
 
-export const GetProductById = async (id: number) : Promise<Product> => {
+export const GetProductById = async (id: number) : Promise<i.Product> => {
 
-    const resp = await axios.get<Product>(`${ url }/Products/${ id }`, 
+    const resp = await axios.get<i.Product>(`${ url }/Products/${ id }`, 
       configRequest);
   
     return resp.data;

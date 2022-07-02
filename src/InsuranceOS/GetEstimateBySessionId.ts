@@ -1,12 +1,11 @@
 import axios from "axios";
-import { Estimate } from "../Interfaces/Estimate";
+import i = Sekure.Interface;
+
 import { configRequest, url } from "./Configuration";
 
-export const GetEstimateBySessionId = async ( sessionId : string ) : Promise<Estimate> => {
+export const GetEstimateBySessionId = async ( sessionId : string )  => 
+ await axios.get<i.Estimate>(`${ url }/Estimates/Session/${ sessionId }`, configRequest);
 
-    const resp = await axios.get<Estimate>(`${ url }/Estimates/Session/${ sessionId }`, 
-      configRequest);
-  
-    return resp.data;
-  }
+
+
   

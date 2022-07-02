@@ -1,11 +1,12 @@
 import axios from "axios";
-import { ExecutableProduct } from "../Types/ExecutableProduct";
 import { configRequest, url } from "./Configuration";
-import { QuotedProduct } from "../Interfaces/QuotedProduct";
 
-export const Quote = async (request : ExecutableProduct) : Promise<QuotedProduct> => {
+import i = Sekure.Interface;
+import t = Sekure.Types;
 
-    const { data } = await axios.post<QuotedProduct>(`${ url }/Products/Quote`,
+export const Quote = async (request : t.ExecutableProduct) : Promise<i.QuotedProduct> => {
+
+    const { data } = await axios.post<i.QuotedProduct>(`${ url }/Products/Quote`,
       JSON.stringify(request), configRequest);
   
     return data;

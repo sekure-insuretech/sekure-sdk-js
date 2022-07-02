@@ -1,7 +1,9 @@
-import { BatchDetail } from "./BatchDetail";
-import { InputParameter } from "./Parameters";
-
-export type ExecutatbleProductLot = {
-    BatchDetail:          BatchDetail;
-    Parameters:           InputParameter[];
+namespace Sekure {
+    export namespace Types {
+        export type ExecutatbleProductLot = {
+            BatchDetail:          BatchDetail;
+            Parameters:           InputParameter[];
+        }
+    }
 }
+

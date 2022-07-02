@@ -1,9 +1,10 @@
-import { BatchDetail } from "./BatchDetail";
-import { InputParameter } from "./InputParameter";
-
-export interface BatchDiscovery {
-    BatchDetail: BatchDetail;
-    Quote:       InputParameter[];
-    Confirm:     InputParameter[];
-    ToEmit:      InputParameter[];
+namespace Sekure {
+    export namespace Interface {
+        export interface BatchDiscovery {
+            BatchDetail: BatchDetail;
+            Quote:       InputParameter[];
+            Confirm:     InputParameter[];
+            ToEmit:      InputParameter[];
+        }
+    }
 }

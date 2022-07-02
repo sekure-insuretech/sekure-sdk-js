@@ -20,6 +20,7 @@ import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
 
 
 //https://bobbyhadz.com/blog/typescript-http-request-axios
+//https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/
 
 
 /* GetProducts()
