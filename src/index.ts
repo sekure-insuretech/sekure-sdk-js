@@ -1,17 +1,18 @@
-/* 
+
 import { GetProductById } from "./InsuranceOS/GetProductById"
+/* 
+import { Quote } from "./InsuranceOS/Quote";
+import { ExecutableProduct } from "./Types/ExecutableProduct";
 import { GetProducts } from "./InsuranceOS/GetProducts"
 import { GetProductStage } from "./InsuranceOS/GetProductStage";
 import { GetEstimateBySessionId } from "./InsuranceOS/GetEstimateBySessionId";
 import { GetProductLotByName } from "./InsuranceOS/GetProductLotByName";
 import { Confirm } from "./InsuranceOS/Confirm";
-import { Quote } from "./InsuranceOS/Quote";
-import { ExecutableProduct } from "./Types/ExecutableProduct";
 import { Emit } from "./InsuranceOS/Emit";
-*/
-
 import { QuoteLot } from "./InsuranceOS/QuoteLot";
 import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
+*/
+
 
 
 
@@ -26,10 +27,10 @@ import { ExecutatbleProductLot } from "./Types/ExecutatbleProductLot";
   .catch( error => console.log( error ) )
   .finally( () => console.log( `Fin GetProduct` ) ) */
 
-/* GetProductById(138)
+GetProductById(138)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
-.finally( () => console.log( `Fin GetProductById(138)` ) ) */
+.finally( () => console.log( `Fin GetProductById(138)` ) )
 
 /* GetProductStage('42bd068a-71df-4dcc-d4ec-08da2c5db10e')
 .then( resp => console.log( resp ) )
@@ -171,7 +172,7 @@ Emit(request, sessionId)
 .catch( error => console.log( error ) )
 .finally( () => console.log( "Emit(request, sessionId)" ) ) */
 
-const request : ExecutatbleProductLot = {
+/* const request : ExecutatbleProductLot = {
   BatchDetail : {
     Name : 'Test_ground_Exequias_Individual',
     PolicyTypeName : 'Asistencias'
@@ -226,4 +227,4 @@ console.log('Aquí empieza a cotizar el lote');
 QuoteLot(request)
 .then( resp => console.log( resp ) )
 .catch( error => console.log( error ) )
-.finally( () => console.log( "QuoteLot(request)" ) )
+.finally( () => console.log( "QuoteLot(request)" ) ) */
