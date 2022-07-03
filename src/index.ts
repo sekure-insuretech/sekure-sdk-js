@@ -88,4 +88,8 @@ export default class InsuranceOS {
         const { data } = await axios.post<( i.QuoteProductLot | i.Exception )>(`${ this._url }/Products/Batch/Quote`, JSON.stringify(request), this.ConfigRequest( this._skrKey ));
         return data;
     }
+
+    public Sum = (a: number, b: number): number => {
+      return a + b;
+    }
 }
