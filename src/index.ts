@@ -14,9 +14,8 @@ export default class Sekure {
         return await this.ios.GetProductById(id).then((res) => res).catch((error) => error);
     }
 
-    public forEach(items: any, callback: any) {
-        for (let index = 0; index < items.length; index++) {
-          callback(items[index]);
-        }
-      }
+    public GetProducts = async () : Promise<i.ProductDetail> => {
+      return await this.ios.GetProducts().then((res) => res).catch((error) => error);
+  }
+
 }
