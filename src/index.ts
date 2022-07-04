@@ -16,6 +16,10 @@ export default class Sekure {
 
     public GetProducts = async () : Promise<i.ProductDetail> => {
       return await this.ios.GetProducts().then((res) => res).catch((error) => error);
-  }
+    }
 
+    public GetEstimateBySessionId = async ( sessionId : string ): Promise<i.Estimate> => 
+    {
+        return await this.ios.GetEstimateBySessionId( sessionId ).then((res) => res).catch((error) => error);
+    }
 }
