@@ -57,7 +57,7 @@ export default class Sekure {
       .catch(error => error);
   };
 
-  public Confirm = async (request: t.ExecutableProduct, SessionId: string ): Promise<i.Policy> => {
+  public Confirm = async (request: t.ExecutableProduct, SessionId: string): Promise<i.Policy> => {
     return await this.ios
       .Confirm(request, SessionId)
       .then(res => res)
