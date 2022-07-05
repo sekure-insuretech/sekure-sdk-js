@@ -20,9 +20,11 @@ export default class InsuranceOS {
     }
     return {
         headers : {
-            Accept: "application/json",
+            mode: 'no-cors',
+            Accept: 
+            "application/json",
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json; charset=utf-8",
-            "Access-Control-Allow-Credentials": true,
             "X-Requested-With": "XMLHttpRequest",
             "skr-key": skrKey
         }
