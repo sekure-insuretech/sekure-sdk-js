@@ -77,4 +77,46 @@ export default class Sekure {
       .then(res => res)
       .catch(error => error);
   };
+
+  public ConfirmLot = async (request: t.ExecutatbleProductLot, sessionId: string) : Promise<(i.QuoteProductLot)> => {
+    return await this.ios
+    .ConfirmLot(request, sessionId)
+    .then(res => res)
+    .catch(error => error);
+  };
+
+  public EmitLot = async (request: t.ExecutatbleProductLot, sessionId: string) : Promise<(string)> => {
+    return await this.ios
+    .EmitLot(request, sessionId)
+    .then(res => res)
+    .catch(error => error);
+  };
+
+  public GetPaymentStatus = async (request: t.PaymentDetail) : Promise<i.PaymentStatus> => {
+    return await this.ios
+    .GetPaymentStatus(request)
+    .then(res => res)
+    .catch(error => error);
+  };
+
+  public Pay = async (request: t.PaymentDetail) : Promise<string> => {
+    return await this.ios
+    .Pay(request)
+    .then(res => res)
+    .catch(error => error);
+  };
+
+  public GetPaymentGatewayConfiguration = async (paymentGatewayName: string, productName: string) : Promise<i.PaymentGatewayProduct> => {
+    return await this.ios
+    .GetPaymentGatewayConfiguration(paymentGatewayName, productName)
+    .then(res => res)
+    .catch(error => error);
+  };
+
+  public AskSekure = async (parameters: any, productId: number, productName:string) : Promise<string> => {
+    return await this.ios
+    .AskSekure(parameters, productId, productName)
+    .then(res => res)
+    .catch(error => error);
+  };
 }

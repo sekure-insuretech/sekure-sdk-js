@@ -73,9 +73,17 @@ const requestLot = {
         InputParameterSchemaList:  []
       },
     ]
-  };
-  
-const product = {"Result":"OK"} ;
+};
+
+const requestPay = {
+  PaymentGatewayName: 'xxxx',
+  ProductName: 'asistencias',
+  TransactionSkrId: 'fc78fa74-8b7a-4a6b-9044-45ec5e15e695',
+  ClientSkrId: 'fc78fa74-8b7a-4a6b-9044-45ec5e15e695',
+  Request: []
+};
+
+const product = {"Result":"OK"};
 const resp = {data: product};
 
 test('It should bring a successful quote', async () => {
@@ -102,7 +110,41 @@ test('It should bring a successful emit', async () => {
 test('It should bring a successful quote by lot', async () => {
     const myMock = jest.fn();
 
-    myMock.mockResolvedValue( resp );
-    return await ios.QuoteLot ( requestLot ).then(data => expect(data).toEqual(product));
+    myMock.mockResolvedValue(resp);
+    return await ios.QuoteLot (requestLot).then(data => expect(data).toEqual(product));
 });
-  
+
+test('It should bring a successful confirm by lot', async () => {
+  const myMock = jest.fn();
+
+  myMock.mockResolvedValue(resp);
+  return await ios.ConfirmLot (requestLot, 'fc78fa74-8b7a-4a6b-9044-45ec5e15e695').then(data => expect(data).toEqual(product));
+});
+
+test('It should bring a successful emit by lot', async () => {
+  const myMock = jest.fn();
+
+  myMock.mockResolvedValue(resp);
+  return await ios.EmitLot(requestLot, 'fc78fa74-8b7a-4a6b-9044-45ec5e15e695').then(data => expect(data).toEqual(product));
+});
+
+test('It should bring a successful payment', async () => {
+  const myMock = jest.fn();
+
+  myMock.mockResolvedValue(resp);
+  return await ios.GetPaymentStatus(requestPay).then(data => expect(data).toEqual(product));
+});
+
+test('It should bring a successful payment status', async () => {
+  const myMock = jest.fn();
+
+  myMock.mockResolvedValue(resp);
+  return await ios.Pay(requestPay).then(data => expect(data).toEqual(product));
+});
+
+test('It should bring a successful askSekure', async () => {
+  const myMock = jest.fn();
+  const requestAskSekure: any = { data: {"Result":"OK"} }
+  myMock.mockResolvedValue(resp);
+  return await ios.AskSekure(requestAskSekure, 30, 'test').then(data => expect(data).toEqual(product));
+});
