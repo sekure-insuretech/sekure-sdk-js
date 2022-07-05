@@ -31,7 +31,7 @@
     "trailingComma": "es5"
   },
   "name": "sekure-sdk-javascripts",
-  "author": "JhotaMS",
+  "author": "Sekure Latam",
   "module": "dist/sekure-sdk-javascripts.esm.js",
   "size-limit": [
     {
