@@ -1,6 +1,6 @@
 import InsuranceOS from "./InsuranceOS";
 import i = Sekure.Interface;
-/* import t = Sekure.Types; */
+import t = Sekure.Types;
 
 export default class Sekure {
 
@@ -21,5 +21,25 @@ export default class Sekure {
     public GetEstimateBySessionId = async ( sessionId : string ): Promise<i.Estimate> => 
     {
         return await this.ios.GetEstimateBySessionId( sessionId ).then((res) => res).catch((error) => error);
+    }
+
+    public GetQuoteBySessionId = async ( sessionId : string ) : Promise<i.Product> => 
+    {
+        return await this.ios.GetQuoteBySessionId( sessionId ).then((res) => res).catch((error) => error);
+    }
+
+    public GetProductStage = async ( sessionId : string ) : Promise<i.ProductStage> => 
+    {
+        return await this.ios.GetProductStage( sessionId ).then((res) => res).catch((error) => error);
+    }
+
+    public GetProductLotByName = async ( name : string ) : Promise<i.BatchDiscovery> => {
+
+        return await this.ios.GetProductLotByName( name ).then((res) => res).catch((error) => error);
+    }
+
+    public Quote = async (request : t.ExecutableProduct) : Promise<i.QuotedProduct> => {
+
+        return await this.ios.Quote( request).then((res) => res).catch((error) => error);
     }
 }
