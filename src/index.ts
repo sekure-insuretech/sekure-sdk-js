@@ -42,4 +42,19 @@ export default class Sekure {
 
         return await this.ios.Quote( request).then((res) => res).catch((error) => error);
     }
+
+    public Confirm = async ( request : t.ExecutableProduct, SessionId: string ) : Promise<( i.Policy | i.Exception )> => {
+
+        return await this.ios.Confirm( request, SessionId ).then((res) => res).catch((error) => error);
+    }
+
+    public Emit = async ( request : t.ExecutableProduct, SessionId: string ) : Promise<string> => {
+
+        return await this.ios.Emit( request, SessionId ).then((res) => res).catch((error) => error);
+    }
+
+    public QuoteLot = async ( request : t.ExecutatbleProductLot ) : Promise<( i.QuoteProductLot | i.Exception )> => {
+
+        return await this.ios.QuoteLot( request ).then((res) => res).catch((error) => error);
+    }
 }

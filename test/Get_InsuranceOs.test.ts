@@ -11,7 +11,6 @@ test('It should bring a successful discovery', async () => {
   return await ios.GetProductById(0).then(data => expect(data).toEqual(product));
 });
 
-
 test('It should bring all the products successfully', async () => {
   const myMock = jest.fn();
   myMock.mockResolvedValue(resp);
