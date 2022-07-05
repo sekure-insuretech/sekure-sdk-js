@@ -40,3 +40,9 @@ test('It should bring a batch discovery through the name', async () => {
   myMock.mockResolvedValue(resp);
   return await ios.GetProductLotByName('ground_test_pets').then(data => expect(data).toEqual(product));
 });
+
+test('It should bring the payment gateway configuration', async () => {
+  const myMock = jest.fn();
+  myMock.mockResolvedValue(resp);
+  return await ios.GetPaymentGatewayConfiguration('test', 'test').then(data => expect(data).toEqual(product));
+});
