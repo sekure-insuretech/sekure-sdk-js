@@ -2,6 +2,11 @@
 
 library sekure-sdk-js es una libreria en Javascripts en donde podrás utilizar todos nuestros productos y servicios en framework de javascripts de una forma más facil.
 
+## Descargar la libreria
+```
+npm i sekure-sdk-js
+```
+
 ## Configuración de la libreria
 
 Debe importar la libreria.
