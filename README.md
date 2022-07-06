@@ -38,7 +38,7 @@ Con el descubrimiento se identifica cuales son los input parameter que se requie
     
     const productDiscovery = async () => 
     {
-      const getProductById = await ios.GetProductById(138)
+      const getProductById = await ios.GetProductById(productId)
       console.log(getProductById);
     }
     productDiscovery();
@@ -132,3 +132,7 @@ Con el descubrimiento se identifica cuales son los input parameter que se requie
 
   }, []);
 ```
+
+- request: Cuerpo de la petición, esta información se obtiene en el descubrimiento
+- sessionId: Es el sessionId del producto a cotizar
+  
