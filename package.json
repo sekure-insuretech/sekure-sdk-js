@@ -30,7 +30,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "sekure-sdk-javascripts",
+  "name": "sekure-sdk-js",
   "author": "Sekure Latam",
   "module": "dist/sekure-sdk-javascripts.esm.js",
   "size-limit": [
