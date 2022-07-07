@@ -36,11 +36,11 @@
   "size-limit": [
     {
       "path": "dist/sekure-sdk-javascripts.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     },
     {
       "path": "dist/sekure-sdk-javascripts.esm.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     }
   ],
   "devDependencies": {
