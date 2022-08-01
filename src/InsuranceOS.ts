@@ -37,7 +37,7 @@ export default class InsuranceOS {
 
   public GetProductById = async (id: number): Promise<i.Product> => {
     const { data } = await axios.get<i.Product>(
-      `${this._url}/Products/${id}`,
+      `${this._url}/Products/v1/${id}`,
       this.ConfigRequest(this._skrKey)
     );
     return data;
