@@ -53,10 +53,8 @@ export default class InsuranceOS {
     return data;
   };
 
-  public GetQuoteBySessionId = async (
-    sessionId: string
-  ): Promise<i.Product> => {
-    const { data } = await axios.get<i.Product>(
+  public GetQuoteBySessionId = async (sessionId: string): Promise<i.Policy> => {
+    const { data } = await axios.get<i.Policy>(
       `${this._url}/Quote/Session/${sessionId}`,
       this.ConfigRequest(this._skrKey)
     );
@@ -109,9 +107,9 @@ export default class InsuranceOS {
   public Emit = async (
     request: t.ExecutableProduct,
     sessionId: string
-  ): Promise<string> => {
-    const { data } = await axios.post<string>(
-      `${this._url}/Products/Emit/${sessionId}`,
+  ): Promise<i.Policy> => {
+    const { data } = await axios.post<i.Policy>(
+      `${this._url}/Products/Emit/v1/${sessionId}`,
       JSON.stringify(request),
       this.ConfigRequest(this._skrKey)
     );
@@ -144,9 +142,9 @@ export default class InsuranceOS {
   public EmitLot = async (
     request: t.ExecutatbleProductLot,
     sessionId: string
-  ): Promise<string> => {
-    const { data } = await axios.post<string>(
-      `${this._url}/Products/Batch/Emit/${sessionId}`,
+  ): Promise<i.Policy> => {
+    const { data } = await axios.post<i.Policy>(
+      `${this._url}/Products/Batch/Emit/v1/${sessionId}`,
       JSON.stringify(request),
       this.ConfigRequest(this._skrKey)
     );

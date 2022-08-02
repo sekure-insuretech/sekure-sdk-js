@@ -8,16 +8,16 @@ export default class Sekure {
     this.ios = new InsuranceOS(url, skrKey);
   }
 
-  public GetProductById = async (id: number): Promise<i.Product> => {
+  public GetProducts = async (): Promise<i.ProductDetail> => {
     return await this.ios
-      .GetProductById(id)
+      .GetProducts()
       .then(res => res)
       .catch(error => error);
   };
 
-  public GetProducts = async (): Promise<i.ProductDetail> => {
+  public GetProductById = async (id: number): Promise<i.Product> => {
     return await this.ios
-      .GetProducts()
+      .GetProductById(id)
       .then(res => res)
       .catch(error => error);
   };
@@ -31,9 +31,7 @@ export default class Sekure {
       .catch(error => error);
   };
 
-  public GetQuoteBySessionId = async (
-    sessionId: string
-  ): Promise<i.Product> => {
+  public GetQuoteBySessionId = async (sessionId: string): Promise<i.Policy> => {
     return await this.ios
       .GetQuoteBySessionId(sessionId)
       .then(res => res)
@@ -80,7 +78,7 @@ export default class Sekure {
   public Emit = async (
     request: t.ExecutableProduct,
     SessionId: string
-  ): Promise<string> => {
+  ): Promise<i.Policy> => {
     return await this.ios
       .Emit(request, SessionId)
       .then(res => res)
@@ -109,7 +107,7 @@ export default class Sekure {
   public EmitLot = async (
     request: t.ExecutatbleProductLot,
     sessionId: string
-  ): Promise<string> => {
+  ): Promise<i.Policy> => {
     return await this.ios
       .EmitLot(request, sessionId)
       .then(res => res)
