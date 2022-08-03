@@ -37,7 +37,7 @@ export default class InsuranceOS {
 
   public GetProductById = async (id: number): Promise<i.Product> => {
     const { data } = await axios.get<i.Product>(
-      `${this._url}/Products/v1/${id}`,
+      `${this._url}/v1/Products/${id}`,
       this.ConfigRequest(this._skrKey)
     );
     return data;
@@ -109,7 +109,7 @@ export default class InsuranceOS {
     sessionId: string
   ): Promise<i.Policy> => {
     const { data } = await axios.post<i.Policy>(
-      `${this._url}/Products/Emit/v1/${sessionId}`,
+      `${this._url}/v1/Products/Emit/${sessionId}`,
       JSON.stringify(request),
       this.ConfigRequest(this._skrKey)
     );
@@ -144,7 +144,7 @@ export default class InsuranceOS {
     sessionId: string
   ): Promise<i.Policy> => {
     const { data } = await axios.post<i.Policy>(
-      `${this._url}/Products/Batch/Emit/v1/${sessionId}`,
+      `${this._url}/Products/Batch/Emit/${sessionId}`,
       JSON.stringify(request),
       this.ConfigRequest(this._skrKey)
     );
