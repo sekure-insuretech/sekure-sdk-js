@@ -1,11 +1,11 @@
 namespace Sekure {
-    export namespace Interface {
-        export interface QuotedProduct {
-            SessionId:         string;
-            ProductDetail:     ProductDetail;
-            PolicyHolder:      PolicyHolder;
-            Quotes:            InputParameter[];
-            PaymentGatewaySkr: boolean;
-        }
+  export namespace Interface {
+    export interface QuotedProduct {
+      SessionId: string;
+      ProductDetail: ProductDetail;
+      PolicyHolder: PolicyHolder;
+      Quotes: InputParameter[];
+      PaymentGatewaySkr: boolean;
     }
+  }
 }
