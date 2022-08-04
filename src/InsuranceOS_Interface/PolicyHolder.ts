@@ -6,6 +6,7 @@ namespace Sekure {
       lastName?: string;
       secondLastName?: string;
       birthdate?: Date;
+      ExpeditionDate?: Date;
       gender?: string;
       address: string;
       identificationType: string;
@@ -13,6 +14,7 @@ namespace Sekure {
       maritalStatus?: string;
       email: string;
       phoneNumber: string;
+      CityCode: string;
     }
   }
 }
