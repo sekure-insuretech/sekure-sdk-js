@@ -5,7 +5,7 @@ namespace Sekure {
       Quote: InputParameter[];
       Confirm: InputParameter[];
       ToEmit: InputParameter[];
-      AskSekure: any[];
+      AskSekure: AskSekure[];
     }
   }
 }

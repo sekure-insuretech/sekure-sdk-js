@@ -4,7 +4,7 @@ namespace Sekure {
       SessionId: string;
       ProductDetail: ProductDetail;
       PolicyHolder: PolicyHolder;
-      ConfirmedQuote: InputParameter[];
+      ConfirmedQuote: Quote;
       Status: string;
     }
   }

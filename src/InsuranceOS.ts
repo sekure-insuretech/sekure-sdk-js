@@ -27,8 +27,8 @@ export default class InsuranceOS {
     };
   }
 
-  public GetProducts = async (): Promise<i.ProductDetail> => {
-    const { data } = await axios.get<i.ProductDetail>(
+  public GetProducts = async (): Promise<i.ProductReference> => {
+    const { data } = await axios.get<i.ProductReference>(
       `${this._url}/Products/`,
       this.ConfigRequest(this._skrKey)
     );
@@ -53,8 +53,10 @@ export default class InsuranceOS {
     return data;
   };
 
-  public GetQuoteBySessionId = async (sessionId: string): Promise<i.Policy> => {
-    const { data } = await axios.get<i.Policy>(
+  public GetQuoteBySessionId = async (
+    sessionId: string
+  ): Promise<i.QuotedProduct> => {
+    const { data } = await axios.get<i.QuotedProduct>(
       `${this._url}/Quote/Session/${sessionId}`,
       this.ConfigRequest(this._skrKey)
     );
