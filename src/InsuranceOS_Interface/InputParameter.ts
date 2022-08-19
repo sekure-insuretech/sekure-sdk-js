@@ -4,6 +4,7 @@ namespace Sekure {
       Name: string;
       InputParameterId: number;
       InputParameterType: string;
+      InputParameterValue: string;
       InputParameterDescription: string;
       InputParameterRequired: string;
       ShowApi: boolean;

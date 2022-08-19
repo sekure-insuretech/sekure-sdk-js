@@ -8,7 +8,7 @@ export default class Sekure {
     this.ios = new InsuranceOS(url, skrKey);
   }
 
-  public GetProducts = async (): Promise<i.ProductDetail> => {
+  public GetProducts = async (): Promise<i.ProductReference> => {
     return await this.ios
       .GetProducts()
       .then(res => res)
@@ -31,7 +31,9 @@ export default class Sekure {
       .catch(error => error);
   };
 
-  public GetQuoteBySessionId = async (sessionId: string): Promise<i.Policy> => {
+  public GetQuoteBySessionId = async (
+    sessionId: string
+  ): Promise<i.QuotedProduct> => {
     return await this.ios
       .GetQuoteBySessionId(sessionId)
       .then(res => res)
