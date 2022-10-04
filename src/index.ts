@@ -132,6 +132,29 @@ export default class Sekure {
       .catch(error => error);
   };
 
+  public SessionToken = async (request: t.PaymentDetail): Promise<string> => {
+    return await this.ios
+      .SessionToken(request)
+      .then(res => res)
+      .catch(error => error);
+  };
+
+  public ReverseCapture = async (request: t.PaymentDetail): Promise<string> => {
+    return await this.ios
+      .ReverseCapture(request)
+      .then(res => res)
+      .catch(error => error);
+  };
+
+  public GetTokenizationStatus = async (
+    request: t.PaymentDetail
+  ): Promise<i.PaymentStatus> => {
+    return await this.ios
+      .GetTokenizationStatus(request)
+      .then(res => res)
+      .catch(error => error);
+  };
+
   public GetPaymentGatewayConfiguration = async (
     paymentGatewayName: string,
     productName: string

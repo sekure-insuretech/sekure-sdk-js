@@ -162,11 +162,36 @@ export default class InsuranceOS {
     return data;
   };
 
-  public GetPaymentStatus = async (
-    request: t.PaymentDetail
-  ): Promise<i.PaymentStatus> => {
+  public SessionToken = async (request: t.PaymentDetail): Promise<string> => {
+    const { data } = await axios.post<string>(
+      `${this._url}/SessionToken`,
+      JSON.stringify(request),
+      this.ConfigRequest(this._skrKey)
+    );
+    return data;
+  };
+
+  public ReverseCapture = async (request: t.PaymentDetail): Promise<string> => {
+    const { data } = await axios.post<string>(
+      `${this._url}/ReverseCapture`,
+      JSON.stringify(request),
+      this.ConfigRequest(this._skrKey)
+    );
+    return data;
+  };
+
+  public GetPaymentStatus = async (request: t.PaymentDetail): Promise<i.PaymentStatus> => {
     const { data } = await axios.post<i.PaymentStatus>(
       `${this._url}/Payment/Status`,
+      JSON.stringify(request),
+      this.ConfigRequest(this._skrKey)
+    );
+    return data;
+  };
+
+  public GetTokenizationStatus = async (request: t.PaymentDetail): Promise<i.PaymentStatus> => {
+    const { data } = await axios.post<i.PaymentStatus>(
+      `${this._url}/Payment/TokenizationStatus`,
       JSON.stringify(request),
       this.ConfigRequest(this._skrKey)
     );
